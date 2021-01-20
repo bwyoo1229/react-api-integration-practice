@@ -27,7 +27,7 @@ function asyncReducer(state, action) {
 }
 
 // callback: api를 호출하는 함수, useEffect의 두번째 파라미터에 넣는 deps
-function useAsync(callback, deps = [], skip = false) {
+export function useAsync(callback, deps = [], skip = false) {
   const [state, dispatch] = useReducer(asyncReducer, {
     loading: false,
     data: null,
@@ -53,5 +53,3 @@ function useAsync(callback, deps = [], skip = false) {
 
   return [state, fetchData];
 }
-
-export default useAsync;
